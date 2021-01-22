@@ -1,0 +1,19 @@
+(VAR v h t v0 h0 vn hn ht x y z)
+(SIG (fall 3 2) (add 2 1) (height 2 1) (sub 2 1))
+(RULES
+  fall{0,2}{1}(v,0,h) -> <h,v>
+  fall{0,2}{1}(v0,s(t),h) -> <h0,v> <= add{0,1}{}(v0, s(s(s(s(s(0)))))) -> <vn> ^
+                                       fall{0,2}{1}(vn,t,h) -> <hn, v> ^
+                                       height{1}{0}(vn, hn) -> <h0>
+  
+  add{0,1}{}(0,y) -> <y>
+  add{0,1}{}(s(x), y) -> <s(z)> <= add{0,1}{}(x,y) -> <z>
+
+  height{1}{0}(vn, hn) -> h0 <= sub{1}{0}(vn, hn) -> <ht> ^
+                                add{1}{0}(s(s(s(s(s(0))))), ht) -> <h0> 
+  sub{1}{0}(y,y) -> <0>
+  sub{1}{0}(s(z),y) -> <s(x)> <= sub{1}{0}(z,y) -> <x>
+  add{1}{0}(y,y) -> <0>
+  add{1}{0}(y, s(z)) -> <s(x)> <= add{1}{0}(y,z) -> <x>
+)
+

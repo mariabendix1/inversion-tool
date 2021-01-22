@@ -1,0 +1,250 @@
+(VAR name progr u v x y x1 y1 y2 x2 z1 z2)
+(RULES
+  inv(proc(name, progr)) -> <proc(u,v)>
+    <= invName(name) -> <u> ^
+       inv(progr) -> <v>
+
+  inv(+=(x, y)) -> <-=(x, y)>
+  inv(-=(x, y)) -> <+=(x, y)>
+  inv(^=(x, y)) -> <^=(x, y)>
+
+  inv(if(x1, y1, y2, x2)) -> <if(x2, z1, z2, x1)>
+    <= inv(y1) -> <z1> ^
+       inv(y2) -> <z2>
+
+  inv(loop(x1, y1, y2, x2)) -> <loop(x2, z1, z2, x1)>
+    <= inv(y1) -> <z1> ^
+       inv(y2) -> <z2>
+
+  inv(call(name)) -> <call(u)>
+    <= invName(name) -> <u>
+
+  inv(uncall(name)) -> <uncall(u)>
+    <= invName(name) -> <u>
+
+  inv(sequence(x,y)) -> <sequence(u, v)>
+    <= inv(y) -> <u> ^
+       inv(x) -> <u>
+
+  inv(skip) -> <skip>
+  inv(proc(name, progr)) -> <proc(u,v)>
+    <= invName(name) -> <u> ^
+       inv(progr) -> <v>
+
+  inv(+=(x, y)) -> <-=(x, y)>
+  inv(-=(x, y)) -> <+=(x, y)>
+  inv(^=(x, y)) -> <^=(x, y)>
+
+  inv(if(x1, y1, y2, x2)) -> <if(x2, z1, z2, x1)>
+    <= inv(y1) -> <z1> ^
+       inv(y2) -> <z2>
+
+  inv(loop(x1, y1, y2, x2)) -> <loop(x2, z1, z2, x1)>
+    <= inv(y1) -> <z1> ^
+       inv(y2) -> <z2>
+
+  inv(call(name)) -> <call(u)>
+    <= invName(name) -> <u>
+
+  inv(uncall(name)) -> <uncall(u)>
+    <= invName(name) -> <u>
+
+  inv(sequence(x,y)) -> <sequence(u, v)>
+    <= inv(y) -> <u> ^
+       inv(x) -> <u>
+
+  inv(skip) -> <skip>
+  inv(proc(name, progr)) -> <proc(u,v)>
+    <= invName(name) -> <u> ^
+       inv(progr) -> <v>
+
+  inv(+=(x, y)) -> <-=(x, y)>
+  inv(-=(x, y)) -> <+=(x, y)>
+  inv(^=(x, y)) -> <^=(x, y)>
+
+  inv(if(x1, y1, y2, x2)) -> <if(x2, z1, z2, x1)>
+    <= inv(y1) -> <z1> ^
+       inv(y2) -> <z2>
+
+  inv(loop(x1, y1, y2, x2)) -> <loop(x2, z1, z2, x1)>
+    <= inv(y1) -> <z1> ^
+       inv(y2) -> <z2>
+
+  inv(call(name)) -> <call(u)>
+    <= invName(name) -> <u>
+
+  inv(uncall(name)) -> <uncall(u)>
+    <= invName(name) -> <u>
+
+  inv(sequence(x,y)) -> <sequence(u, v)>
+    <= inv(y) -> <u> ^
+       inv(x) -> <u>
+
+  inv(skip) -> <skip>
+  inv(proc(name, progr)) -> <proc(u,v)>
+    <= invName(name) -> <u> ^
+       inv(progr) -> <v>
+
+  inv(+=(x, y)) -> <-=(x, y)>
+  inv(-=(x, y)) -> <+=(x, y)>
+  inv(^=(x, y)) -> <^=(x, y)>
+
+  inv(if(x1, y1, y2, x2)) -> <if(x2, z1, z2, x1)>
+    <= inv(y1) -> <z1> ^
+       inv(y2) -> <z2>
+
+  inv(loop(x1, y1, y2, x2)) -> <loop(x2, z1, z2, x1)>
+    <= inv(y1) -> <z1> ^
+       inv(y2) -> <z2>
+
+  inv(call(name)) -> <call(u)>
+    <= invName(name) -> <u>
+
+  inv(uncall(name)) -> <uncall(u)>
+    <= invName(name) -> <u>
+
+  inv(sequence(x,y)) -> <sequence(u, v)>
+    <= inv(y) -> <u> ^
+       inv(x) -> <u>
+
+  inv(skip) -> <skip>
+  inv(proc(name, progr)) -> <proc(u,v)>
+    <= invName(name) -> <u> ^
+       inv(progr) -> <v>
+
+  inv(+=(x, y)) -> <-=(x, y)>
+  inv(-=(x, y)) -> <+=(x, y)>
+  inv(^=(x, y)) -> <^=(x, y)>
+
+  inv(if(x1, y1, y2, x2)) -> <if(x2, z1, z2, x1)>
+    <= inv(y1) -> <z1> ^
+       inv(y2) -> <z2>
+
+  inv(loop(x1, y1, y2, x2)) -> <loop(x2, z1, z2, x1)>
+    <= inv(y1) -> <z1> ^
+       inv(y2) -> <z2>
+
+  inv(call(name)) -> <call(u)>
+    <= invName(name) -> <u>
+
+  inv(uncall(name)) -> <uncall(u)>
+    <= invName(name) -> <u>
+
+  inv(sequence(x,y)) -> <sequence(u, v)>
+    <= inv(y) -> <u> ^
+       inv(x) -> <u>
+
+  inv(skip) -> <skip>
+  inv(proc(name, progr)) -> <proc(u,v)>
+    <= invName(name) -> <u> ^
+       inv(progr) -> <v>
+
+  inv(+=(x, y)) -> <-=(x, y)>
+  inv(-=(x, y)) -> <+=(x, y)>
+  inv(^=(x, y)) -> <^=(x, y)>
+
+  inv(if(x1, y1, y2, x2)) -> <if(x2, z1, z2, x1)>
+    <= inv(y1) -> <z1> ^
+       inv(y2) -> <z2>
+
+  inv(loop(x1, y1, y2, x2)) -> <loop(x2, z1, z2, x1)>
+    <= inv(y1) -> <z1> ^
+       inv(y2) -> <z2>
+
+  inv(call(name)) -> <call(u)>
+    <= invName(name) -> <u>
+
+  inv(uncall(name)) -> <uncall(u)>
+    <= invName(name) -> <u>
+
+  inv(sequence(x,y)) -> <sequence(u, v)>
+    <= inv(y) -> <u> ^
+       inv(x) -> <u>
+
+  inv(skip) -> <skip>
+  inv(proc(name, progr)) -> <proc(u,v)>
+    <= invName(name) -> <u> ^
+       inv(progr) -> <v>
+
+  inv(+=(x, y)) -> <-=(x, y)>
+  inv(-=(x, y)) -> <+=(x, y)>
+  inv(^=(x, y)) -> <^=(x, y)>
+
+  inv(if(x1, y1, y2, x2)) -> <if(x2, z1, z2, x1)>
+    <= inv(y1) -> <z1> ^
+       inv(y2) -> <z2>
+
+  inv(loop(x1, y1, y2, x2)) -> <loop(x2, z1, z2, x1)>
+    <= inv(y1) -> <z1> ^
+       inv(y2) -> <z2>
+
+  inv(call(name)) -> <call(u)>
+    <= invName(name) -> <u>
+
+  inv(uncall(name)) -> <uncall(u)>
+    <= invName(name) -> <u>
+
+  inv(sequence(x,y)) -> <sequence(u, v)>
+    <= inv(y) -> <u> ^
+       inv(x) -> <u>
+
+  inv(skip) -> <skip>
+  inv(proc(name, progr)) -> <proc(u,v)>
+    <= invName(name) -> <u> ^
+       inv(progr) -> <v>
+
+  inv(+=(x, y)) -> <-=(x, y)>
+  inv(-=(x, y)) -> <+=(x, y)>
+  inv(^=(x, y)) -> <^=(x, y)>
+
+  inv(if(x1, y1, y2, x2)) -> <if(x2, z1, z2, x1)>
+    <= inv(y1) -> <z1> ^
+       inv(y2) -> <z2>
+
+  inv(loop(x1, y1, y2, x2)) -> <loop(x2, z1, z2, x1)>
+    <= inv(y1) -> <z1> ^
+       inv(y2) -> <z2>
+
+  inv(call(name)) -> <call(u)>
+    <= invName(name) -> <u>
+
+  inv(uncall(name)) -> <uncall(u)>
+    <= invName(name) -> <u>
+
+  inv(sequence(x,y)) -> <sequence(u, v)>
+    <= inv(y) -> <u> ^
+       inv(x) -> <u>
+
+  inv(skip) -> <skip>
+  inv(proc(name, progr)) -> <proc(u,v)>
+    <= invName(name) -> <u> ^
+       inv(progr) -> <v>
+
+  inv(+=(x, y)) -> <-=(x, y)>
+  inv(-=(x, y)) -> <+=(x, y)>
+  inv(^=(x, y)) -> <^=(x, y)>
+
+  inv(if(x1, y1, y2, x2)) -> <if(x2, z1, z2, x1)>
+    <= inv(y1) -> <z1> ^
+       inv(y2) -> <z2>
+
+  inv(loop(x1, y1, y2, x2)) -> <loop(x2, z1, z2, x1)>
+    <= inv(y1) -> <z1> ^
+       inv(y2) -> <z2>
+
+  inv(call(name)) -> <call(u)>
+    <= invName(name) -> <u>
+
+  inv(uncall(name)) -> <uncall(u)>
+    <= invName(name) -> <u>
+
+  inv(sequence(x,y)) -> <sequence(u, v)>
+    <= inv(y) -> <u> ^
+       inv(x) -> <u>
+
+  inv(skip) -> <skip>
+ 
+)
+(COMMENT
+)
+

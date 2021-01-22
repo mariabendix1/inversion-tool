@@ -1,0 +1,7 @@
+(VAR x xs i y zs)
+(SIG 
+  (rem 2 2))
+(RULES 
+  rem{1}{1}(:(x, xs), x) -> <0, xs>
+  rem{1}{1}(:(x, xs), y) -> <s(i), :(x, zs)> <= rem{1}{1}(xs, y) -> <i, zs>
+)

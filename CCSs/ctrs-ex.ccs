@@ -1,0 +1,7 @@
+(CONDITIONTYPE ORIENTED)
+ (VAR x)
+ (RULES
+  not(x) -> false | a(x) == true
+  not(x) -> true  | a(x) == false
+ )
+

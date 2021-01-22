@@ -1,0 +1,36 @@
+(VAR xs m)
+(RULES
+  octbin(:(0, [])) -> <:(0, [])>
+  octbin(:(1, [])) -> <:(1, [])>
+  octbin(:(2, [])) -> <:(0, :(1, []))>
+  octbin(:(3, [])) -> <:(1, :(1, []))>
+  octbin(:(4, [])) -> <:(0, :(0, :(1, [])))>
+  octbin(:(5, [])) -> <:(1, :(0, :(1, [])))>
+  octbin(:(6, [])) -> <:(0, :(1, :(1, [])))>
+  octbin(:(7, [])) -> <:(1, :(1, :(1, [])))>
+
+  octbin(:(0, :(x, xs))) -> <:(0, :(0, :(0, :(m, ms))))> <= octbin(:(x, xs)) -> <:(m, ms)> 
+  octbin(:(1, :(x, xs))) -> <:(1, :(0, :(0, :(m, ms))))> <= octbin(:(x, xs)) -> <:(m, ms)>
+  octbin(:(2, :(x, xs))) -> <:(0, :(1, :(0, :(m, ms))))> <= octbin(:(x, xs)) -> <:(m, ms)>
+  octbin(:(3, :(x, xs))) -> <:(1, :(1, :(0, :(m, ms))))> <= octbin(:(x, xs)) -> <:(m, ms)>
+  octbin(:(4, :(x, xs))) -> <:(0, :(0, :(1, :(m, ms))))> <= octbin(:(x, xs)) -> <:(m, ms)>
+  octbin(:(5, :(x, xs))) -> <:(1, :(0, :(1, :(m, ms))))> <= octbin(:(x, xs)) -> <:(m, ms)>
+  octbin(:(6, :(x, xs))) -> <:(0, :(1, :(1, :(m, ms))))> <= octbin(:(x, xs)) -> <:(m, ms)>
+  octbin(:(7, :(x, xs))) -> <:(1, :(1, :(1, :(m, ms))))> <= octbin(:(x, xs)) -> <:(m, ms)>
+)
+(COMMENT
+  submitted by:  Maria Bendix Mikkelsen
+  author:        [1]
+ 
+  description:   octal to binary number converter
+                 input is reversed list of digits
+
+  properties of the system:
+    we specialize s.t. xs = x:xs and m = m:ms,
+    reversible
+
+  [1] M. Kawabe and R. Gl ̈uck, “The program inverter lrinv and 
+      its structure,” in Practical Aspects of Declarative Languages
+      (M. V. Hermenegildo andD.  Cabeza,  eds.),  (Berlin,  
+      Heidelberg),  pp.  219–234,  Springer  BerlinHeidelberg, 2005
+)

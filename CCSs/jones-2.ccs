@@ -1,0 +1,31 @@
+(VAR i is x res)
+(RULES
+  f([],x) -> <x>
+  f(:(i, is), x) -> <res> <= g(is, x, :(i, is)) -> <res>
+
+  g(a,b,c) -> <res> <= f(a, :(b, c)) -> <res>
+)
+(COMMENT
+  submitted by:  Maria Bendix Mikkelsen
+  author:        [1]
+ 
+  description:   Mutual recursion
+                 The purpose is unknown, see 'run by hand'
+
+  properties of the system:
+    functional, non-reversible because output overlap
+
+  [1] C. S. Lee, N. D. Jones, and A. M. Ben-Amram, “The size change 
+      principle for program termination,” SIGPLAN Not., vol. 36, 
+      p. 81–92, Jan. 2001
+
+  Run by hand:
+  f([m,a,r,i,a], 7) -> g([a,r,i,a], 7, [m,a,r,i,a])
+                    -> f([a,r,i,a], [7,m,a,r,i,a])
+                    -> g([r,i,a], [7,m,a,r,i,a], [a,r,i,a])
+                    -> f([r,i,a], [[7,m,a,r,i,a],a,r,i,a])
+                    -> g([i,a], [[7,m,a,r,i,a],a,r,i,a], [r,i,a])
+                    -> f([i,a], [[[7,m,a,r,i,a],a,r,i,a],r,i,a])
+                    ...
+                    what even is this
+)

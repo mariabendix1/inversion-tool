@@ -1,0 +1,73 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.31.2.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: a92888d2dbeff12928b32d05e6c2cb886d1eb750b7f2bcc7c87c3072c3be888a
+
+name:           ccs
+version:        0.0.0
+license:        GPL-3
+license-file:   LICENSE
+build-type:     Simple
+
+library
+  exposed-modules:
+      CCSAst
+      CCSParser
+      Inverter
+      CCSProps
+  other-modules:
+      CCSPretty
+      Main
+      Tex
+      Paths_ccs
+  hs-source-dirs:
+      src
+  build-depends:
+      base
+    , containers
+    , parsec
+    , tasty
+    , tasty-hunit
+    , unique
+  default-language: Haskell2010
+
+executable ccs
+  main-is: Main.hs
+  other-modules:
+      CCSAst
+      CCSParser
+      CCSPretty
+      CCSProps
+      Inverter
+      Tex
+      Paths_ccs
+  hs-source-dirs:
+      src
+  build-depends:
+      base
+    , containers
+    , parsec
+    , tasty
+    , tasty-hunit
+    , unique
+  default-language: Haskell2010
+
+test-suite blackbox-tests
+  type: exitcode-stdio-1.0
+  main-is: Main.hs
+  other-modules:
+      Paths_ccs
+  hs-source-dirs:
+      test
+  build-depends:
+      base
+    , ccs
+    , containers
+    , parsec
+    , tasty
+    , tasty-hunit
+    , unique
+  default-language: Haskell2010

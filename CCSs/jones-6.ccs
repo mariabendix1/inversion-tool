@@ -1,0 +1,34 @@
+(VAR a res b bs d c cs)
+(RULES
+  f(a, []) -> <res> <= g(a, []) -> <res>
+  f(a, :(b, bs)) -> <res> <= f(:(b, a), bs) -> <res>
+
+  g([], d) -> <d>
+  g(:(c, cs), d) -> <res> <= g(cs, :(c, d)) -> <res>
+)
+(COMMENT
+  submitted by:  Maria Bendix Mikkelsen
+  author:        [1]
+ 
+  description:   tail-recursive function,
+                 ends up reversing two lists
+
+  properties of the system:
+    functional, non-reversible because output overlap
+
+  [1] C. S. Lee, N. D. Jones, and A. M. Ben-Amram, “The size change 
+      principle for program termination,” SIGPLAN Not., vol. 36, 
+      p. 81–92, Jan. 2001
+
+  Run by hand:
+  f([maria], [bendix]) -> f([bmaria], [endix])
+                       -> f([ebmaria], [ndix])
+                       -> ...
+                       -> f([xidnebmaria], [])
+                       -> g([xidnebmaria], [])
+                       -> g([idnebmaria], [x])
+                       -> g([dnebmaria], [ix]])
+                       -> g([maria], [bendix])
+                       -> g([aria], [mbendix])
+                       -> g([], [airambendix])
+)

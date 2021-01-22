@@ -1,0 +1,46 @@
+(VAR name progr u v x y x1 y1 y2 x2 z1 z2)
+(RULES
+  inv(proc(name, progr)) -> <proc(u,v)>
+    <= invName(name) -> <u> ^
+       inv(progr) -> <v>
+
+  inv(+=(x, y)) -> <-=(x, y)>
+  inv(-=(x, y)) -> <+=(x, y)>
+  inv(^=(x, y)) -> <^=(x, y)>
+
+  inv(if(x1, y1, y2, x2)) -> <if(x2, z1, z2, x1)>
+    <= inv(y1) -> <z1> ^
+       inv(y2) -> <z2>
+
+  inv(loop(x1, y1, y2, x2)) -> <loop(x2, z1, z2, x1)>
+    <= inv(y1) -> <z1> ^
+       inv(y2) -> <z2>
+
+  inv(call(name)) -> <call(u)>
+    <= invName(name) -> <u>
+
+  inv(uncall(name)) -> <uncall(u)>
+    <= invName(name) -> <u>
+
+  inv(sequence(x,y)) -> <sequence(u, v)>
+    <= inv(y) -> <u> ^
+       inv(x) -> <v>
+
+  inv(skip) -> <skip>
+ 
+)
+(COMMENT
+  author:      [1]
+ 
+  description: reversible language Janus inverter
+               the full inversion is itself
+
+  properties of the system:
+    functional, reversible
+
+  [1] M. H. Kirkeby and R. Gl ̈uck, “Semi-inversion of conditional 
+      constructor term rewriting systems,” in Logic-Based Program 
+      Synthesis and Transformation (M. Gabbrielli, ed.), (Cham), 
+      pp. 243–259, Springer International Publishing, 2020
+)
+

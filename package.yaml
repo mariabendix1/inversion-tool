@@ -1,0 +1,28 @@
+name: ccs
+
+dependencies:
+- base    
+- containers       
+- parsec
+- tasty            
+- tasty-hunit      
+- unique
+
+library:
+  source-dirs: src
+  exposed-modules:
+    - CCSAst
+    - CCSParser
+    - Inverter
+    - CCSProps
+
+executable:
+  main: Main.hs
+  source-dirs: src
+
+tests:
+  blackbox-tests:
+    main: Main.hs
+    source-dirs: test
+    dependencies:
+    - ccs

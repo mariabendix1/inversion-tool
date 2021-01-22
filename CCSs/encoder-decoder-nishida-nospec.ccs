@@ -1,0 +1,49 @@
+(VAR ys xs l x res1 res2 y n ps bool zs bool1 bool2)
+(RULES
+  decode(ys) -> <xs> <= decompr([], ys) -> <xs>
+
+  decompr(l, []) -> <l>
+  decompr(xs, :(p(x, s(0)), [])) -> <res1>
+    <= decompr(:(x,xs), []) -> <res1>
+  decompr(xs, :(p(x, s(0)),:(p(y,n), ps))) -> <res1>
+    <= equal(y, x) -> <false> ^
+       decompr(:(x, xs), :(p(y, n), ps)) -> <res1>
+  decompr(xs, :(p(x, s(n)), ps)) -> <res1>
+    <= equal(x, x) -> <true> ^
+       decompr(:(x, xs), :(p(x, n), ps)) -> <res1>
+
+  equal(a,a) -> <true>
+  equal(s(x),a) -> <false>
+  equal(a,s(x)) -> <false>
+  equal(s(x),s(y)) -> <bool> <= equal(x,y) -> <bool>
+     
+)
+(COMMENT
+  submitted by:  Maria Bendix Mikkelsen
+  author:        [1]
+ 
+  description:   inversion of encoder [1] by hand using method [2]
+
+  properties of the system:
+    functional, non-reversible because of output overlap + erasing
+
+  [1] A. Zaki, S. Abdennadher, and T. Fr ̈uhwirth, “Combining forward 
+      and backward propagation,” in Frontiers of Combining 
+      Systems (C. Lutz andS. Ranise, eds.), (Cham), pp. 307–322, 
+      Springer International Publishing,2015
+  [2] N. Nishida and G. Vidal, “Program Inversion for Tail Recursive 
+      Functions,” in 22nd International Conference on Rewriting 
+      Techniques and Applications (RTA’11) (M. Schmidt-Schauß, ed.), 
+      vol. 10 of Leibniz International Proceedings in Informatics 
+      (LIPIcs), (Dagstuhl, Germany), pp. 283–298, 
+      Schloss Dagstuhl–Leibniz-Zentrum fuer Informatik, 2011
+
+  Run by hand:
+     []             (a,3):(b,2):[]            RULE 4
+ ->  [a]            (a,2):(b,2):[]            RULE 4
+ ->  [a,a]          (a,1):(b,2):[]            RULE 3
+ ->  [a,a,a]        (b,2):[]                  RULE 4
+ ->  [a,a,a,b]      (b,1):[]                  RULE 3
+ ->  [a,a,a,b,b]    []                        RULE 1
+ ->  <[a,a,a,b,b]>
+)

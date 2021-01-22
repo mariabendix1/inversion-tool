@@ -1,0 +1,20 @@
+(VAR n m res res1)
+(RULES
+  a(0,n) -> <s(n)>
+  a(s(m),0) -> <res> <= a(m,s(0)) -> <res>
+  a(s(m), s(n)) -> <res> <= a(s(m), n) -> <res1> ^
+                            a(m, res1) -> <res>
+)
+(COMMENT
+  submitted by:  Maria Bendix Mikkelsen
+  author:        [1]
+ 
+  description:   lexically ordered parameters, Ackermann
+
+  properties of the system:
+    functional, non-reversible because output overlap
+
+  [1] C. S. Lee, N. D. Jones, and A. M. Ben-Amram, “The size change 
+      principle for program termination,” SIGPLAN Not., vol. 36, 
+      p. 81–92, Jan. 2001
+)

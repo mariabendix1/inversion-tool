@@ -1,0 +1,9 @@
+(VAR x y z w)
+(RULES
+  div(y,0) -> <und>
+  div(0,y) -> <0>
+  div(s(z),s(y)) -> <s(x)> <= sub(s(z),s(y)) -> <w> ^ div(w,s(y)) -> <x>
+
+  sub(y,0) -> <y>
+  sub(s(z), s(x)) -> <y> <= sub(z,x) -> <y>
+)

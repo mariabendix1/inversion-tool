@@ -1,0 +1,32 @@
+(VAR x xs y ys res)
+(RULES
+  f(x,[]) -> <x>
+  f([], :(y, ys)) -> <res> <= f(:(y,ys), ys) -> <res>
+  f(:(x,xs), :(y,ys)) -> <res> <= f(:(y,ys), xs) -> <res>
+)
+(COMMENT
+  submitted by:  Maria Bendix Mikkelsen
+  author:        [1]
+ 
+  description:   tail-recursive function, which deletes parameters
+
+  properties of the system:
+    functional, non-reversible because output overlap + erasing
+
+  [1] C. S. Lee, N. D. Jones, and A. M. Ben-Amram, “The size change 
+      principle for program termination,” SIGPLAN Not., vol. 36, 
+      p. 81–92, Jan. 2001
+
+  Run by hand:
+  f([m,a,r,i,a], [b,e,n,d,i,x]) -> f([b,e,n,d,i,x], [a,r,i,a])
+                                -> f([a,r,i,a], [e,n,d,i,x])
+                                -> f([e,n,d,i,x], [r,i,a])
+                                -> f([r,i,a], [n,d,i,x])
+                                -> f([n,d,i,x], [i,a])
+                                -> f([i,a], [d,i,x])
+                                -> f([d,i,x], [a])
+                                -> f([a], [i,x])
+                                -> f([i,x], []) -> [i,x]
+
+  f([], [maria]) -> f([maria], [aria])
+)

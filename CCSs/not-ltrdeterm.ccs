@@ -1,0 +1,11 @@
+(VAR x y z)
+(RULES
+  mul{}{0}(0) -> <0,y>
+  mul{}{0}(z) -> <s(x),y> <= mul(x,y) -> <w> ^
+                             add(y,w) -> <z>
+  mul(0,y) -> <0>
+  mul(s(x),y) -> <z> <= mul(x,y) -> <w> ^
+                        add(y,w) -> <z>
+  add(0,y) -> <y>
+  add(s(x), y) -> <s(z)> <= add(x,y) -> <z>
+)

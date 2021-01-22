@@ -1,0 +1,18 @@
+Ccs {idlist = Var ["x", "y", "z", "u"], 
+     funlist = Sig [("perm", 1, 1), ("del", 1, 2)],
+     rulelist = 
+       Rules [(Arrow (ID "perm{}{0}" [ID "[]" []]) 
+                     (ID "<>" [ID "[]" []]) []), 
+              (Arrow (ID "perm{}{0}" [ID ":" [VarID "y" [], VarID "z" []]]) 
+                     (ID "<>" [VarID "x" []]) 
+                      [CArrow (ID "perm{}{0}" [VarID "z" []]) 
+                              (ID "<>" [VarID "u" []]), 
+                       CArrow (ID "del{}{0,1}" [VarID "y" [], VarID "u" []]) 
+                              (ID "<>" [VarID "x" []])
+                       ]), 
+              (Arrow (ID "del{}{0,1}" [VarID "x" [], VarID "y" []]) 
+                     (ID "<>" [ID ":" [VarID "x" [], VarID "y" []]]) []), 
+              (Arrow (ID "del{}{0,1}" [VarID "z" [], ID ":" [VarID "x" [], VarID "u" []]]) 
+                     (ID "<>" [ID ":" [VarID "x" [], VarID "y" []]]) 
+                      [CArrow (ID "del{}{0,1}" [VarID "z" [], VarID "u" []]) 
+                              (ID "<>" [VarID "y" []])])]}

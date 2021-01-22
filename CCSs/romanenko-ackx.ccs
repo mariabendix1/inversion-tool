@@ -1,0 +1,41 @@
+(VAR yz x x1 y yw z y1)
+(SIG (ack 2 1))
+(RULES
+  ack1(s(yz)) -> <x,y> <= ackx(0,yz) -> <x,y>
+  ackx(x, y) -> <x,y>
+  ackx(x1, s(0)) -> <x,y> <= ackx(s(x1),0) -> <x,y>
+  ackx(x1, y1) -> <x,y> <= ack2(s(x1),y1) -> <yw> ^
+                           ackx(s(x1), s(yw)) -> <x, y>
+
+  ack2(0,s(y)) -> <y>
+  ack2(s(x1),z) -> <0> <= ack2(x1,z) -> <s(0)>
+
+  ack2(s(x1),z) -> <s(yw)> <= ack2(x1,z) -> <y1> ^
+                              ack2(s(x1),y1) -> <yw>
+)
+(COMMENT
+  submitted by:  Maria Bendix Mikkelsen
+  author:        [1]
+ 
+  description:   Romanenko's full inversion of step-wise ack function
+
+  properties of the system:
+    non-functional because overlap (could we specialize) 
+    non-reversible because of output overlap
+
+  [1] A.  Romanenko,  “Inversion  and  meta computation,”
+      SIGPLAN  Not.,vol. 26, p. 12–22, May 1991.
+
+  Running by hand:
+  ack(7) -> <x,y> <= ackx(0,6) -> <x,y>
+                     RULE 2
+                     ackx(0,6) -> <x,y>
+                     <= ack2(1,6) -> <4>
+                        ackx(1,5) -> <x, y>
+                        RULE 2
+                        ackx(1,5) -> <x, y>
+                        <= ack2(2,5) -> <2>
+                           ackx(2,2) -> <x,y>
+                           ....
+)
+

@@ -1,0 +1,15 @@
+(VAR l ls r1 a tl hd r)
+(RULES
+  rev(r) -> <ls> <= r1([], r) -> <ls>
+
+  r1(a, []) -> <a>
+  r1(ls, :(l, a)) -> <r> <= r1(:(l, ls), a) -> <r>
+)
+(COMMENT
+  This inversion was done by hand using nishida/vidal
+  [m,a,r,i,a] -> r1([], [m,a,r,i,a])
+              -> r1([m], [a,r,i,a])
+              -> r1([a,m], [r,i,a])
+              -> ....
+  ALSO FUNCTIONAL
+)

@@ -1,0 +1,40 @@
+(VAR m n r res)
+(RULES
+  p(m,n,s(r)) -> <res> <= p(m,r,n) -> <res>
+  p(m,s(n),0) -> <res> <= p(0,n,m) -> <res>
+  p(m, 0, 0) -> <m>
+)
+(COMMENT
+  submitted by:  Maria Bendix Mikkelsen
+  author:        [1]
+ 
+  description:   a tail-recursive function
+
+  properties of the system:
+    functional, non-reversible because output overlap
+
+  [1] C. S. Lee, N. D. Jones, and A. M. Ben-Amram, “The size change 
+      principle for program termination,” SIGPLAN Not., vol. 36, 
+      p. 81–92, Jan. 2001
+
+  Run by hand:
+  p(2,3,6) -> p(2,5,3)
+           -> p(2,2,5)
+           -> p(2,4,2)
+           -> p(2,1,4)
+           -> p(2,3,1)
+           -> p(2,0,3)
+           -> p(2,2,0)  RULE 2
+           -> p(0,1,2)
+           -> p(0,1,1)
+           -> p(0,0,1)
+           -> p(0,0,0) -> 0
+
+  p(4,2,1) -> p(4,0,2)
+           -> p(4,1,0) RULE 2
+           -> p(0,0,4)
+           -> p(0,3,0) RULE 2
+           -> p(0,2,0)
+           -> ...
+           what
+)

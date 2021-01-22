@@ -1,0 +1,20 @@
+(VAR x y z u)
+(RULES
+  perm([]) -> <[]>
+  perm(x) -> <:(y,z)> <= del(x) -> <y,u> ^
+                         perm(u) -> <z>
+  del(:(x,y)) -> <x,y>
+  del(:(x,y)) -> <z,:(x,u)> <= del(y) -> <z, u>
+)
+(COMMENT
+  author:      [1]
+ 
+  description: relation between lists and their permutation
+   
+  properties of the system:
+    overlapping, output-overlapping, therefore non-functional
+
+  [1] M. H. Kirkeby and R. Gl ̈uck, “Inversion framework:  Reasoning 
+      about inversion  by  conditional  term  rewriting  systems".
+      PPDP  
+)

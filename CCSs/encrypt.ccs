@@ -1,0 +1,25 @@
+(VAR x xs z zs y key w0)
+(RULES
+  encrypt(nil, key) -> <nil>
+  encrypt(:(x,xs), key) -> <:(z,zs)> <= mod4(key) -> <y> ^
+                                        add(x,y) -> <z> ^
+                                        encrypt(xs,key) -> <zs>
+  mod4(0) -> <0>
+  mod4(s(0)) -> <s(0)>
+  mod4(s(s(0))) -> <s(s(0))>
+  mod4(s(s(s(0)))) -> <s(s(s(0)))>
+  mod4(s(s(s(s(x))))) -> <w0> <= mod4(x) -> <w0>
+)
+(COMMENT
+  author:      [1]
+ 
+  description: encryption algorithm
+
+  properties of the system:
+    functional, non-reversible (because output overlap and erasing)
+
+  [1] M. H. Kirkeby and R. Gl ̈uck, “Semi-inversion of conditional 
+      constructor term rewriting systems,” in Logic-Based Program 
+      Synthesis and Transformation (M. Gabbrielli, ed.), (Cham), 
+      pp. 243–259, Springer International Publishing, 2020
+)

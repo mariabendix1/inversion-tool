@@ -1,0 +1,25 @@
+(VAR yz x x1 y yw z y1)
+(SIG (ack 2 1))
+(RULES
+  step(s(x1), 0) -> <x1,s(0)>
+  step(s(x1), s(yw)) -> <x1, y1> <= ack(s(x1), yw) -> <y1>
+
+  ack(0,y) -> <s(y)>
+  ack(s(x1),0) -> <z> <= ack(x1, s(0)) -> <z>
+
+  ack(s(x1),s(yw)) -> <z> <= ack(s(x1), yw) -> <y1> ^
+                             ack(x1,y1) -> <z>
+)
+(COMMENT
+  submitted by:  Maria Bendix Mikkelsen
+  author:        [1]
+ 
+  description:   stepping ackermann
+
+  properties of the system:
+    functional, non-reversible because of output overlap
+
+  [1] A.  Romanenko,  “Inversion  and  meta computation,”
+      SIGPLAN  Not.,vol. 26, p. 12–22, May 1991.
+)
+

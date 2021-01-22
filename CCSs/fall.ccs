@@ -1,0 +1,34 @@
+(VAR v h t v0 h0 vn hn ht x y z)
+(RULES
+  fall(v,h,0) -> <v,h>
+  fall(v0,h0,s(t)) -> <v,h> <= add(v0,s(s(s(s(s(0)))))) -> <vn> ^
+                               height(h0, vn) -> <hn> ^
+                               fall(vn,hn,t) -> <v,h>
+
+  height(h0, vn) -> hn <= add(h0, s(s(s(s(s(0)))))) -> <ht> ^
+                          sub(ht, vn) -> <hn>
+  sub(0, y) -> <y>
+  sub(s(x), s(z)) -> <y> <= sub(x, z) -> <y>
+
+  add(0, y) -> <y>
+  add(s(x), y) -> <s(z)> <= add(x,y) -> <z> 
+)
+(COMMENT
+  author:      [1]
+ 
+  description: free fall simulation
+               v = velocity
+               h = height
+               t = time
+   
+               s*5(0) should have been s*10(0)
+
+  properties of the system:
+    functional, non-reversible (because output overlap)
+
+  [1] M. H. Kirkeby and R. Gl ̈uck, “Semi-inversion of conditional 
+      constructor term rewriting systems,” in Logic-Based Program 
+      Synthesis and Transformation (M. Gabbrielli, ed.), (Cham), 
+      pp. 243–259, Springer International Publishing, 2020
+)
+

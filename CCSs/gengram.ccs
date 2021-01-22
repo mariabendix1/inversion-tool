@@ -1,0 +1,26 @@
+(VAR)
+(SIG (gengram 1 1))
+(RULES
+  gengram(E) -> <plus(gengram(E),gengram(T))> 
+  gengram(E) -> <gengram(T)> 
+
+  gengram(T) -> <times(gengram(T),gengram(F))> 
+  gengram(T) -> <gengram(F)> 
+
+  gengram(F) -> <brackets(gengram(E))> 
+  gengram(F) -> <a> 
+)
+(COMMENT
+  Submitted by:  Maria Bendix Mikkelsen
+  author:        [1]
+ 
+  description:   grammar generation, is inverted into a parser
+
+  properties of the system:
+    non-functional because of overlaps
+
+  [1] A.  Romanenko,  “Inversion  and  metacomputation,” SIGPLAN  
+          Not.,vol. 26, p. 12–22, May 1991.
+)
+
+

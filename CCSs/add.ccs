@@ -1,0 +1,17 @@
+(VAR x y z)
+(RULES
+  add(0, y) -> <y>
+  add(s(x), y) -> <s(z)> <= add(x,y) -> <z> 
+)
+(COMMENT
+  author:      [1]
+ 
+  description: addition
+   
+  properties of the system:
+    functional, non-reversible
+
+  [1] M. H. Kirkeby and R. Gl ̈uck, “Inversion framework:  Reasoning 
+      about inversion  by  conditional  term  rewriting  systems".
+      PPDP  
+)

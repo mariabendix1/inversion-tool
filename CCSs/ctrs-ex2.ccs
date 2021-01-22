@@ -1,0 +1,6 @@
+(CONDITIONTYPE ORIENTED)
+(VAR x y z w)
+(RULES
+f(f(x,y), f(z,w)) -> x | f(f(x,z), f(y,w)) == x
+f(f(x,y), x) -> x | f(x) == x
+)

@@ -1,0 +1,8 @@
+(VAR k i test3 x list1 test1 test2)
+(RULES
+  perm(0,k) -> <true, []>
+  perm(s(i),k) -> <test3, :(x,list1)> <= perm(i,k) -> <test1, list1> ^
+                                         gen(k, list1) -> <x, test2> ^
+                                         and(test1,test2) -> <test3>
+)
+(COMMENT den maja lavede)

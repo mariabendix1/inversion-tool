@@ -1,0 +1,17 @@
+(VAR x y z)
+(RULES
+  addprime(0, y) -> <y, 0>
+  addprime(s(x), y) -> <s(z),s(x)> <= addprime(x,y) -> <z, x> 
+)
+(COMMENT
+  author:      [1]
+ 
+  description: reversible addition
+   
+  properties of the system:
+    reversible 
+
+  [1] M. H. Kirkeby and R. Gl ̈uck, “Inversion framework:  Reasoning 
+      about inversion  by  conditional  term  rewriting  systems".
+      PPDP  
+)

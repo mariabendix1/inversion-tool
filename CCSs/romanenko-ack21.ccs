@@ -1,0 +1,19 @@
+(VAR y1 x x1 y yw z)
+(SIG (ack 2 1))
+(RULES
+  ack{1}{0}(y,s(y)) -> <0>
+  ack{1}{0}(0,z) -> <s(x1)> <= ack{1}{0}(s(0),z) -> <x1>
+
+  ack{1}{0}(s(yw),z) -> <s(x1)> <= ack{}{0}(z) -> <s(x1),y1> ^
+                                   ack{1}{0}(s(yw),y1) -> <s(x1)>
+
+  ack{}{0}(s(y)) -> <0,y>
+  ack{}{0}(z) -> <s(x1), 0> <= ack{}{0}(z) -> <x1, s(0)>
+
+  ack{}{0}(z) -> <s(x1), s(yw)> <= ack{}{0}(z) -> <x1,y1> ^
+                                   ack{}{0}(y1) -> <s(x1), yw>
+)
+(COMMENT
+  this is hand-written, the algorithm was not here
+  s(0) ...)
+

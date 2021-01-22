@@ -1,0 +1,27 @@
+Ccs {idlist = Var ["x","y","z","w"], 
+     funlist = Sig [("mul",2,1), ("add",2,1)], 
+     rulelist = Rules 
+       [Arrow (ID "mul{0}{0}" [ID "0" [],ID "0" []]) 
+              (ID "<>" [VarID "y" []]) [],
+        Arrow (ID "mul{0}{0}" [ID "s" [VarID "x" []],VarID "z" []]) 
+              (ID "<>" [VarID "y" []]) 
+              [CArrow (ID "mul" [VarID "x" [],VarID "y" []]) 
+                      (ID "<>" [VarID "w" []]),
+               CArrow (ID "add" [VarID "y" [],VarID "w" []]) 
+                      (ID "<>" [VarID "z" []])],
+
+        Arrow (ID "mul{0,1}{}" [ID "0" [],VarID "y" []]) 
+              (ID "<>" [ID "0" []]) [],
+        Arrow (ID "mul{0,1}{}" [ID "s" [VarID "x" []],VarID "y" []]) 
+              (ID "<>" [VarID "z" []]) 
+              [CArrow (ID "mul" [VarID "x" [],VarID "y" []]) 
+                      (ID "<>" [VarID "w" []]),
+               CArrow (ID "add" [VarID "y" [],VarID "w" []]) 
+                      (ID "<>" [VarID "z" []])],
+
+        Arrow (ID "add{0,1}{}" [ID "0" [],VarID "y" []]) 
+              (ID "<>" [VarID "y" []]) [],
+        Arrow (ID "add{0,1}{}" [ID "s" [VarID "x" []],VarID "y" []]) 
+              (ID "<>" [ID "s" [VarID "z" []]]) 
+              [CArrow (ID "add" [VarID "x" [],VarID "y" []]) 
+                      (ID "<>" [VarID "z" []])]]}

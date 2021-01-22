@@ -1,0 +1,6 @@
+(VAR x y z)
+(SIG (addprime 2 2))
+(RULES
+  addprime{}{}() -> <0,y,y,0>
+  addprime{}{}() -> <s(x), y, s(z), s(x)> <= addprime{}{}() -> <x,y,z,x> 
+)

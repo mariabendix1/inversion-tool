@@ -1,0 +1,27 @@
+(VAR l ls r1 a tl hd r)
+(RULES
+  rev(ls) -> <r> <= r1(ls, []) -> <r>
+
+  r1([], a) -> <a>
+  r1(:(l, ls), a) -> <r> <= r1(ls, :(l, a)) -> <r>
+)
+(COMMENT
+  submitted by:  Maria Bendix Mikkelsen
+  author:        [1]
+ 
+  description:   tail-recursive reverse
+
+  properties of the system:
+    functional, non-reversible because output overlap
+
+  [1] C. S. Lee, N. D. Jones, and A. M. Ben-Amram, “The size change 
+      principle for program termination,” SIGPLAN Not., vol. 36, 
+      p. 81–92, Jan. 2001
+
+  Run by hand:
+  [m,a,r,i,a] -> r1([m,a,r,i,a], [])
+              -> r1([a,r,i,a], [m])
+              -> r1([r,i,a], [a,m])
+              -> ....
+              -> r1([], [a,i,r,a,m])
+)

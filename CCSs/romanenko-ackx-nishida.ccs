@@ -1,0 +1,29 @@
+(VAR yz x x1 y yw z y1)
+(SIG (ack 2 1))
+(RULES
+  ack1(x,y) -> <s(yz)> <= ackx(x,y) -> <0,yz>
+  ackx(0, y) -> <0, y>
+  ackx(s(x1),0) -> <x,y> <= ackx(x1, s(0)) -> <x,y>
+  ackx(s(x1), s(yw)) -> <x,y> <= ack(s(x1),yw) -> <y1> ^
+                                 ackx(x1, y1) -> <x, y>
+
+  ack(0,y) -> <s(y)>
+  ack(s(x1),0) -> <z> <= ack(x1, s(0)) -> <z>
+
+  ack(s(x1),s(yw)) -> <z> <= ack(s(x1), yw) -> <y1> ^
+                             ack(x1,y1) -> <z>
+)
+(COMMENT
+  written by hand using nishida
+  
+  ack1(2,3) -> 1 + yz <= ackx(2,3) -> <0,yz>
+                      RULE 2
+                   -> ackx(1 + 1, 1 + 2) -> <x,y>
+                      <= ack(2,2) -> <y1>
+                         ackx(1,7) -> <x,y>
+                         RULE 2
+                         -> ackx(1 + 0, 1 + 6) -> <x, y>
+                            <= ack(1,6) -> <y1>
+                               ackx(0, 8) -> <x, y>  
+)
+

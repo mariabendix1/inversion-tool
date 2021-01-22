@@ -1,0 +1,19 @@
+(CONDITIONTYPE ORIENTED)
+(VAR x y z)
+(RULES
+  add(0, y) -> y
+  add(s(x), y) -> s(z) | add(x,y) == z 
+)
+(COMMENT
+  submitted by:  Maria Bendix Mikkelsen
+  author:        [1]
+ 
+  description:   addition written in CoCo format (for testing)
+   
+  properties of the system:
+    funcitonal, non-reversble
+
+  [1] M. H. Kirkeby and R. Gl ̈uck, “Inversion framework:  Reasoning 
+      about inversion  by  conditional  term  rewriting  systems".
+      PPDP  
+)

@@ -1,0 +1,17 @@
+(VAR x xs i y zs)
+(SIG (rem 2 2))
+(RULES
+  rem(:(x,xs),0) -> <x,xs>
+  rem(:(x,xs),s(i)) -> <y,:(x,zs)> <= rem(xs, i) -> <y,zs>
+)
+(COMMENT
+  submitted by:  Maria Bendix Mikkelsen
+  author:        [1]
+ 
+  description:   remove
+
+  properties of the system:
+    functional, non-reversible because of output overlap
+
+  [1] A Program Inversion Tool, ...
+)

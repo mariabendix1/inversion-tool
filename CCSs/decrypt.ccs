@@ -1,0 +1,13 @@
+(VAR x xs z zs y key w0)
+(SIG (encrypt 2 1) (mod4 1 1))
+(RULES
+  encrypt{1}{0}(key, nil) -> <nil>
+  encrypt{1}{0}(key,:(z,zs)) -> <:(x,xs)> <= encrypt{1}{0}(key,zs) -> <xs> ^
+                                             mod4{0}{}(key) -> <y> ^
+                                             add{1}{0}(y,z) -> <x> 
+  mod4{0}{}(0) -> <0>
+  mod4{0}{}(s(0)) -> <s(0)>
+  mod4{0}{}(s(s(0))) -> <s(s(0))>
+  mod4{0}{}(s(s(s(0)))) -> <s(s(s(0)))>
+  mod4{0}{}(s(s(s(s(x))))) -> <w0> <= mod4{0}{}(x) -> <w0>
+)
