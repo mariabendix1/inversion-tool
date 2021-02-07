@@ -11,12 +11,16 @@ Here, you can play around with different CCS examples and the four different rul
 
 ### Build and run source program
 You can also compile and run the program manually:
-- Clone repository.
-- Make sure you have `stack` installed (run `curl -sSL https://get.haskellstack.org/ | sh` on a Unix-like operating system).
-- Run `stack build`. Stack will take care of compilation and packages/libraries.
-- The program is now ready!
+* Clone repository and go to `src` directory.
+* Make sure you have `stack` installed (run `curl -sSL https://get.haskellstack.org/ | sh` on a Unix-like operating system).
+* Run 
 
-Now it gets a little complicated. Navigate to the `src` directory. From here, you can run the `Main` program, which has many functionalities. The input arguments determine what action `Main` should do (inversion, generate diagnostics, and so on). Here are some use cases: 
+        $ stack build
+        $ stack ghc Main
+  Stack will take care of compilation and packages/libraries.
+* The program is now ready!
+
+Now it gets a little complicated. Make sure you are in the `src` directory. From here, you can run the `Main` program, which has many functionalities. The input arguments determine what action `Main` should do (inversion, generate diagnostics, and so on). Here are some use cases: 
 
 * You have a file `fun.ccs` with CCS rules for a function `fun` with arity 2 and co-arity 2 (written in COCO-format or the format in [1]), which you want to invert with respect to I = {1} and O = {1,2}. Run:
 
