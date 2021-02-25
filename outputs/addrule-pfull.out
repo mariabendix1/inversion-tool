@@ -1,4 +1,0 @@
-Arrow (ID "add{}{0}" [ID "s" [ID "z" [], ID "y" []]])
-      (ID "<>" [ID "s" [ID "x" []], ID "y" []]) 
-      [CArrow (ID "add{}{0}" [ID "z" []]) 
-              (ID "<>" [ID "x" [], ID "y" []])]

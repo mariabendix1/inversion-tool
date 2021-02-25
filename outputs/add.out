@@ -1,5 +1,0 @@
-Ccs {idlist   = Var ["x", "y", "z"], 
-     funlist  = Sig [],
-     rulelist = 
-       Rules [(Arrow (ID "add" [ID "0" [], VarID "y" []]) 
-                     (ID "<>" [VarID "y" []]) []), (Arrow (ID "add" [ID "s" [VarID "x" []], VarID "y" []]) (ID "<>" [ID "s" [VarID "z" []]]) [CArrow (ID "add" [VarID "x" [], VarID "y" []]) (ID "<>" [VarID "z" []])])]}

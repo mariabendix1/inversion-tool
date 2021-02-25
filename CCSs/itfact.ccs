@@ -1,0 +1,25 @@
+(VAR w z xs res m n x y)
+(RULES
+  itfact(0,m) -> <m>
+  itfact(s(n),m) -> <res> <= sub(s(n),s(0)) -> <x> ^
+                             mul(s(n),m) -> <y> ^ 
+                             itfact(x,y) -> <res>
+  mul(0,y) -> <0>
+  mul(s(x),y) -> <z> <= mul(x,y) -> <w> ^
+                        add(y,w) -> <z>
+  add(0,y) -> <y>
+  add(s(x), y) -> <s(z)> <= add(x,y) -> <z>
+)
+(COMMENT
+  author:      [1]
+
+  contributed by Maria Bendix Mikkelsen
+ 
+  description: addition
+   
+  properties of the system:
+    functional, tail-rec, non-reversible (erasing, output-overlap)
+
+  [1] "Introduction to Programming Using SML" Textbook by Hans 
+       Rischel and Michael R. Hansen
+)

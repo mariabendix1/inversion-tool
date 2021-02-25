@@ -1,4 +1,0 @@
-(VAR x y w)
-(RULES
-  f(x) -> <y> <= g(x) -> <w>
-)

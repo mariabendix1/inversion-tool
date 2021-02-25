@@ -1,0 +1,26 @@
+(VAR xs res acc x)
+(RULES
+  reverse(xs) -> <res> <= rev(xs, []) -> <res>
+  rev([], acc) -> <acc>
+  rev(:(x,xs), acc) -> <res> <= rev(xs,:(x,acc)) -> <res>
+)
+(COMMENT
+  author:      found in [1] and [2]
+
+  contributed by Maria Bendix Mikkelsen
+ 
+  description: reverse list
+   
+  properties of the system:
+    functional, tail-rec, non-reversible (output overlap)
+
+  [1] T. Æ. Mogensen, “Report on an Implementation of a Semi-Inverter".
+      DIKU
+  [2] N. Nishida and G. Vidal, “Program Inversion for Tail Recursive 
+      Functions,” in 22nd International Conference on Rewriting 
+      Techniques and Applications (RTA’11) (M. Schmidt-Schauß, ed.), 
+      vol. 10 of Leibniz International Proceedings in Informatics 
+      (LIPIcs), (Dagstuhl, Germany), pp. 283–298, 
+      Schloss Dagstuhl–Leibniz-Zentrum fuer Informatik, 2011
+      
+)

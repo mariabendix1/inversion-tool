@@ -1,5 +1,0 @@
-(VAR x y z)
-(RULES
-  add(0, y) -> <z>
-  add(s(x), y) -> <s(z)> <= add(x,y) -> <x> 
-)

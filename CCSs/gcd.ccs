@@ -1,0 +1,23 @@
+(VAR n m res x)
+(RULES
+  gcd(0,0) -> <0>
+  gcd(n,0) -> <n>
+  gcd(0,m) -> <m>
+  gcd(n,m) -> <res> <= greater(n,m) -> <true> ^
+                       sub(n,m) -> <x> ^
+                       gcd(x,m) -> <res>
+  gcd(n,m) -> <res> <= greater(n,m) -> <false> ^
+                       sub(m,n) -> <x> ^
+                       gcd(n,x) -> <res>
+) 
+(COMMENT
+  author:      [1]
+ 
+  description: greatest common divisor
+   
+  properties of the system:
+    tail-rec, non-functional (overlapping rule), non-reversible
+
+  [1] 
+  https://www.cs.iusb.edu/~danav/teach/c311/c311_5_tailrec.html
+)
