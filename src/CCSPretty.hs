@@ -239,41 +239,43 @@ diagpretty path ccs =
   "------------------------------------------\n" ++
   invTypeStr ++
   "------------------------------------------\n" ++
-  "- Number of functions                          "
+  "Number of functions                          "
   ++ (show $ noOfFuns diagnostics) ++ "    \n" ++
-  "- Number of rules                              "
+  "Number of rules                              "
   ++ (show $ noOfRules diagnostics) ++ "    \n" ++
   "\n" ++ 
-  "- Functional                                   [" 
+  "Functional                                   [" 
   ++ [booltochar $ functional diagnostics] ++ "]    \n" ++
-  "  - Orthogonal                                 [" 
+  "- Orthogonal                                 [" 
   ++ [booltochar $ orthogonal diagnostics] ++ "]    \n" ++
-  "    - Non-overlapping                          [" 
+  "  . Non-overlapping                          [" 
   ++ [booltochar $ nonOverlapping diagnostics] ++ "]    \n" ++
-  "    - Left-linear                              [" 
+  "  . Left-linear                              [" 
   ++ [booltochar $ lLinear diagnostics] ++ "]    \n" ++
-  "  - EV-Free                                    [" 
+  "- EV-Free                                    [" 
   ++ [booltochar $ evFree diagnostics] ++ "]    \n" 
   ++ evfreeStr ++
   --"- Singular computational                       [" 
   -- ++ [booltochar $ ecFree diagnostics] ++ "]    \n" ++
-  "  - Left-to-right determ.                      [" 
+  "- Left-to-right determ.                      [" 
   ++ [booltochar $ ltrDeterm diagnostics] ++ "]    \n" 
   ++ determStr ++
   "\n" ++
-  "- Reversible                                   [" 
+  "Reversible                                   [" 
   ++ [booltochar $ reversible diagnostics] ++ "]    \n" ++
-  "  - Output-orthogonal                          ["
+  "- Functional                                 ["
+  ++ [booltochar $ functional diagnostics] ++ "]    \n" ++
+  "- Output-orthogonal                          ["
   ++ [booltochar $ outputOrthogonal diagnostics] ++ "]    \n" ++
-  "    - Non-output-overlapping                   [" 
+  "  . Non-output-overlapping                   [" 
   ++ [booltochar $ nonOutputOverlapping diagnostics] ++ "]    \n" ++
-  "    - Right-linear                             [" 
+  "  . Right-linear                             [" 
   ++ [booltochar $ rLinear diagnostics] ++ "]    \n" ++
-  "  - Strictly non-erasing                       [" 
+  "- Strictly non-erasing                       [" 
   ++ [booltochar $ strictNonErasing diagnostics] ++ "]    \n" ++
-  "    - Non-erasing                              [" 
+  "  . Non-erasing                              [" 
   ++ [booltochar $ nonErasing diagnostics] ++ "]    \n" ++
-  "    - Weakly non-erasing                       [" 
+  "  . Weakly non-erasing                       [" 
   ++ [booltochar $ weakNonErasing diagnostics] ++ "]    \n" 
 
 -------------------------------------
@@ -291,54 +293,57 @@ comppretty path pathOrig ccs ccsOrig =
   " (CCS2)" ++ "\n" ++
   "----------------------------------\n" ++
   "                                     CCS1    CCS2 \n" ++
-  "- Number of functions                "
+  "Number of functions                  "
   ++ (show $ noOfFuns diag1) ++ (replicate spacesFuns ' ') 
   ++ (show $ noOfFuns diag2) ++ "\n" ++
-  "- Number of rules                    "
+  "Number of rules                      "
   ++ (show $ noOfRules diag1) ++ (replicate spacesRules ' ') 
   ++ (show $ noOfRules diag2) ++ "\n" ++
   "\n" ++
-  "- Functional                         [" 
+  "Functional                           [" 
   ++ [booltochar $ functional diag1]  ++ "]     [" 
   ++ [booltochar $ functional diag2] ++ "]    \n" ++
-  "  - Orthogonal                       [" 
+  "- Orthogonal                         [" 
   ++ [booltochar $ orthogonal diag1]       ++ "]     [" 
   ++ [booltochar $ orthogonal diag2] ++ "]    \n" ++
-  "    - Non-overlapping                [" 
+  "  . Non-overlapping                  [" 
   ++ [booltochar $ nonOverlapping diag1]       ++ "]     [" 
   ++ [booltochar $ nonOverlapping diag2] ++ "]    \n" ++
-  "    - Left-linear                    [" 
+  "  . Left-linear                      [" 
   ++ [booltochar $ lLinear diag1]        ++ "]     [" 
   ++ [booltochar $ lLinear diag2] ++ "]    \n" ++
-  "  - EV-Free                          [" 
+  "- EV-Free                            [" 
   ++ [booltochar $ evFree diag1]      ++ "]     [" 
   ++ [booltochar $ evFree diag2] ++ "]    \n" ++
 --  "- Singular computational             [" 
 --  ++ [booltochar $ ecFree diag1]      ++ "]     [" 
 --  ++ [booltochar $ ecFree diag2] ++ "]    \n" ++
-  "  - Left-to-right determ.            [" 
+  "- Left-to-right determ.              [" 
   ++ [booltochar $ ltrDeterm diag1]   ++ "]     [" 
   ++ [booltochar $ ltrDeterm diag2] ++ "]    \n" ++
   "\n" ++
-  "- Reversible                         [" 
+  "Reversible                           [" 
   ++ [booltochar $ reversible diag1]  ++ "]     [" 
   ++ [booltochar $ reversible diag2] ++ "]    \n" ++
-  "  - Output-orthogonal                [" 
+  "- Functional                         [" 
+  ++ [booltochar $ functional diag1]     ++ "]     [" 
+  ++ [booltochar $ functional diag2] ++ "]    \n" ++
+  "- Output-orthogonal                  [" 
   ++ [booltochar $ outputOrthogonal diag1]     ++ "]     [" 
   ++ [booltochar $ outputOrthogonal diag2] ++ "]    \n" ++
-  "    - Non-output-overlapping         [" 
+  "  . Non-output-overlapping           [" 
   ++ [booltochar $ nonOutputOverlapping diag1]     ++ "]     [" 
   ++ [booltochar $ nonOutputOverlapping diag2] ++ "]    \n" ++
-  "    - Right-linear                   [" 
+  "  . Right-linear                     [" 
   ++ [booltochar $ rLinear diag1]        ++ "]     [" 
   ++ [booltochar $ rLinear diag2] ++ "]    \n" ++
-  "  - Strictly non-erasing             [" 
+  "- Strictly non-erasing               [" 
   ++ [booltochar $ strictNonErasing diag1] ++ "]     [" 
   ++ [booltochar $ strictNonErasing diag2] ++ "]    \n" ++
-  "    - Non-erasing                    [" 
+  "  . Non-erasing                      [" 
   ++ [booltochar $ nonErasing diag1]       ++ "]     [" 
   ++ [booltochar $ nonErasing diag2] ++ "]    \n" ++
-  "    - Weakly non-erasing             [" 
+  "  . Weakly non-erasing               [" 
   ++ [booltochar $ weakNonErasing diag1]   ++ "]     [" 
   ++ [booltochar $ weakNonErasing diag2] ++ "]    \n"
 

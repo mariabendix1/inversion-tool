@@ -1,0 +1,11 @@
+(VAR y1 x x1 y yw z)
+(SIG 
+  (ack 2 1))
+(RULES 
+  ack{1}{1}(0, s(y)) -> <y>
+  ack{1}{1}(s(x1), z) -> <0> <= ack{}{1}(z) -> <x1, s(0)>
+  ack{1}{1}(s(x1), z) -> <s(yw)> <= ack{}{1}(z) -> <x1, y1> ^ ack{}{1}(y1) -> <s(x1), yw>
+  ack{}{1}(s(y)) -> <0, y>
+  ack{}{1}(z) -> <s(x1), 0> <= ack{}{1}(z) -> <x1, s(0)>
+  ack{}{1}(z) -> <s(x1), s(yw)> <= ack{}{1}(z) -> <x1, y1> ^ ack{}{1}(y1) -> <s(x1), yw>
+)

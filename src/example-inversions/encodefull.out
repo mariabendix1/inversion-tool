@@ -1,0 +1,14 @@
+(VAR ys xs l x res1 res2 y n ps bool zs bool1 bool2)
+(SIG 
+  (encode 1 1) (compr 2 1) (equal 2 1))
+(RULES 
+  encode{}{1}(xs) -> <ys> <= compr{}{1}(xs) -> <ys, []>
+  compr{}{1}(l) -> <[], l>
+  compr{}{1}(res1) -> <:(x, xs), []> <= compr{}{1}(res1) -> <xs, :(p(x, s(0)), [])>
+  compr{}{1}(res1) -> <:(x, xs), :(p(y, n), ps)> <= compr{}{1}(res1) -> <xs, :(p(x, s(0)), :(p(y, n), ps))> ^ equal{}{1}(false) -> <y, x>
+  compr{}{1}(res1) -> <:(x, xs), :(p(x, n), ps)> <= compr{}{1}(res1) -> <xs, :(p(x, s(n)), ps)> ^ equal{}{1}(true) -> <x, x>
+  equal{}{1}(true) -> <a, a>
+  equal{}{1}(false) -> <s(x), a>
+  equal{}{1}(false) -> <a, s(x)>
+  equal{}{1}(bool) -> <s(x), s(y)> <= equal{}{1}(bool) -> <x, y>
+)

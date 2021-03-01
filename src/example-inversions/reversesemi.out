@@ -1,0 +1,10 @@
+(VAR xs res acc x)
+(SIG 
+  (reverse 1 1) (rev 2 1))
+(RULES 
+  reverse{}{1}(res) -> <xs> <= rev{2}{1}([], res) -> <xs>
+  rev{2}{1}(acc, acc) -> <[]>
+  rev{2}{1}(acc, res) -> <:(x, xs)> <= rev{}{1}(res) -> <xs, :(x, acc)>
+  rev{}{1}(acc) -> <[], acc>
+  rev{}{1}(res) -> <:(x, xs), acc> <= rev{}{1}(res) -> <xs, :(x, acc)>
+)

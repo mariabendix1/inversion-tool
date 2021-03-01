@@ -1,0 +1,9 @@
+(VAR x y z u)
+(SIG 
+  (perm 1 1) (del 1 2))
+(RULES 
+  perm{}{1}([]) -> <[]>
+  perm{}{1}(:(y, z)) -> <x> <= perm{}{1}(z) -> <u> ^ del{}{1,2}(y, u) -> <x>
+  del{}{1,2}(x, y) -> <:(x, y)>
+  del{}{1,2}(z, :(x, u)) -> <:(x, y)> <= del{}{1,2}(z, u) -> <y>
+)

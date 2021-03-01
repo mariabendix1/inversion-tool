@@ -1,0 +1,18 @@
+(VAR ys xs l x res1 res2 y n ps bool zs bool1 bool2)
+(SIG 
+  (encode 1 1) (compr 2 1) (equal 2 1))
+(RULES 
+  encode{}{1}(xs) -> <ys> <= compr{2}{1}([], xs) -> <ys>
+  compr{2}{1}(l, l) -> <[]>
+  compr{2}{1}([], res1) -> <:(x, xs)> <= compr{}{1}(res1) -> <xs, :(p(x, s(0)), [])>
+  compr{2}{1}(:(p(y, n), ps), res1) -> <:(x, xs)> <= compr{}{1}(res1) -> <xs, :(p(x, s(0)), :(p(y, n), ps))> ^ equal{1,2}{1}(y, x, false) -> < >
+  compr{2}{1}(:(p(x, n), ps), res1) -> <:(x, xs)> <= compr{2}{1}(:(p(x, s(n)), ps), res1) -> <xs> ^ equal{1,2}{1}(x, x, true) -> < >
+  compr{}{1}(l) -> <[], l>
+  compr{}{1}(res1) -> <:(x, xs), []> <= compr{}{1}(res1) -> <xs, :(p(x, s(0)), [])>
+  compr{}{1}(res1) -> <:(x, xs), :(p(y, n), ps)> <= compr{}{1}(res1) -> <xs, :(p(x, s(0)), :(p(y, n), ps))> ^ equal{1,2}{1}(y, x, false) -> < >
+  compr{}{1}(res1) -> <:(x, xs), :(p(x, n), ps)> <= compr{}{1}(res1) -> <xs, :(p(x, s(n)), ps)> ^ equal{1,2}{1}(x, x, true) -> < >
+  equal{1,2}{1}(a, a, true) -> < >
+  equal{1,2}{1}(s(x), a, false) -> < >
+  equal{1,2}{1}(a, s(x), false) -> < >
+  equal{1,2}{1}(s(x), s(y), bool) -> < > <= equal{1,2}{1}(x, y, bool) -> < >
+)

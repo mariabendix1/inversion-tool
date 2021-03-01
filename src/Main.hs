@@ -22,10 +22,10 @@ main = do (command:rest) <- getArgs
               -- istr: io set in format "1 2 3"
               -- ostr: io set in format "1 2 3"
               let (path:f:istr:ostr:[]) = rest
-              let file1 = f ++ "triv.out"
-              let file2 = f ++ "full.out"
-              let file3 = f ++ "part.out"
-              let file4 = f ++ "semi.out"
+              let file1 = "results/" ++ f ++ "triv.out"
+              let file2 = "results/" ++ f ++ "full.out"
+              let file3 = "results/" ++ f ++ "part.out"
+              let file4 = "results/" ++ f ++ "semi.out"
               let i = strToList istr
               let o = strToList ostr
               parsed <- parseCCSFile path
@@ -80,5 +80,5 @@ main = do (command:rest) <- getArgs
               -- path: path to file
               -- name: name you want for file
               -- flat: write "flat" if you want a flat format
-              makelatexFromFile path name flat
+              makelatexFromFile path ("tex/" ++ name) flat
 --(makepretty ccs) >>= \res -> putStrLn (show res)
