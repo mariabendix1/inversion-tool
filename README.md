@@ -9,6 +9,8 @@ The easiest way of using the Inversion Tool is to go to the web-version: [Not ye
 
 Here, you can play around with different CCS examples and the four different rule inverters. Or you can write your own CCS program and invert it! Click "About" for detailed information on how to use the tool.
 
+The code is based on Claus Skou Nielsen and Michael Budde's Janus Playground, which can be found here: [Janus Playground](https://topps.diku.dk/pirc/janus-playground/).
+
 ### Build and run source program
 You can also compile and run the program manually:
 * Clone repository and go to `src` directory.
@@ -20,7 +22,7 @@ You can also compile and run the program manually:
   Stack will take care of compilation and packages/libraries.
 * The program is now ready!
 
-Now it gets a little complicated. Make sure you are in the `src` directory. From here, you can run the `Main` program, which has many functionalities. The input arguments determine what action `Main` should do (inversion, generate diagnostics, and so on). Here are some use cases: 
+Now it gets a little complicated. Make sure you are in the `src` directory. From here, you can run the `Main` program, which has many functionalities. The input arguments to `Main` determine what the tool should do (inversion, generate diagnostics, and so on). Here are some use cases: 
 
 * You have a file `fun.ccs` with CCS rules for a function `fun` with arity 2 and co-arity 2 (written in COCO-format or the format in [1]), which you want to invert with respect to I = {1} and O = {1,2}. Run:
 
