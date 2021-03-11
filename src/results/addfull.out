@@ -1,0 +1,9 @@
+(VAR x y z)
+(SIG 
+  (add 2 1))
+(RULES 
+  add{1}{1}(0, y) -> <y>
+  add{1}{1}(s(x), s(z)) -> <y> <= add{}{1}(z) -> <x, y>
+  add{}{1}(y) -> <0, y>
+  add{}{1}(s(z)) -> <s(x), y> <= add{}{1}(z) -> <x, y>
+)

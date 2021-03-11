@@ -1,0 +1,21 @@
+(VAR x y z u v)
+(RULES
+  addsub(x, y) -> <u, v> <= add(x,y) -> <u>, sub(y,x) -> <v>
+  
+  add(0, y) -> <y>
+  add(s(x), y) -> <s(z)> <= add(x,y) -> <z> 
+  
+  sub(0, y) -> <y>
+  sub(s(x), s(z)) -> <y> <= sub(x, z) -> <y>
+)
+(COMMENT
+  submitted by: Maja H. Kirkeby
+  author: [1]
+ 
+  description: injective function using addition and subtraction (with an alternative order of input-argument)
+   
+  properties of the system:
+    functional, non-reversible
+ 
+ [1] Tønnesen, M. (2009). Semi Inversion of Conditional Constructor Term Rewriting Systems (Issue november). University of Computer Science.
+)
