@@ -5,7 +5,7 @@ A tool implementation of Kirkeby and Glück's local inversion framework [1].
 The tool is available as a web-version (recommended) and as the source program.
 
 ### Web-version
-The easiest way of using the Inversion Tool is to go to the web-version: [Not yet available](https://topps.diku.dk/pirc).
+The easiest way of using the Inversion Tool is to go to the web-version: [Inversion Tool](https://topps.diku.dk/mbm/inversion-tool/).
 
 Here, you can play around with different CCS examples and the four different rule inverters. Or you can write your own CCS program and invert it! Click "About" for detailed information on how to use the tool.
 
